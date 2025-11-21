@@ -28,8 +28,8 @@ async function enableCamera() {
     mediaStream = await navigator.mediaDevices.getUserMedia({
       video: {
         facingMode: 'environment',
-        width: { ideal: 1280 },
-        height: { ideal: 720 }
+        width: { ideal: 4096 },
+        height: { ideal: 2160 }
       },
       audio: false
     });
@@ -96,13 +96,13 @@ async function captureAndSend() {
   }
 
   const settings = track.getSettings();
-  const width = settings.width || 1280;
-  const height = settings.height || 720;
+  const width = cameraEl.videoWidth || settings.width || 1920;
+  const height = cameraEl.videoHeight || settings.height || 1080;
   const context = canvasEl.getContext('2d');
   canvasEl.width = width;
   canvasEl.height = height;
   context.drawImage(cameraEl, 0, 0, width, height);
-  const dataUrl = canvasEl.toDataURL('image/jpeg', 0.92);
+  const dataUrl = canvasEl.toDataURL('image/jpeg', 0.98);
 
   try {
     updateUploadStatus('Uploading...', true);
