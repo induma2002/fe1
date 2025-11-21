@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CheetMaster Capture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Mobile Capture Console</h1>
+        <p class="tagline">Grant camera access, keep the tab open, and wait for remote capture commands.</p>
+      </header>
+
+      <section class="preview">
+        <video id="cameraStream" autoplay playsinline muted></video>
+        <canvas id="captureCanvas" width="1280" height="720"></canvas>
+      </section>
+
+      <section class="controls">
+        <div class="status-row">
+          <span>WebSocket</span>
+          <span id="wsStatus" class="badge badge--danger">Disconnected</span>
+        </div>
+        <div class="status-row">
+          <span>Last upload</span>
+          <span id="uploadStatus" class="badge">Waiting</span>
+        </div>
+        <div class="buttons">
+          <button id="reconnectBtn" type="button">Reconnect</button>
+          <button id="manualBtn" type="button" class="secondary">Capture Now</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
