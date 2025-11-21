@@ -62,7 +62,7 @@ function initWebSocket() {
     scheduleReconnect();
   });
   websocket.addEventListener('message', handleSocketMessage);
-}
+}https://physically-holy-longhorn.ngrok-free.app
 
 function scheduleReconnect() {
   if (reconnectTimer) {
